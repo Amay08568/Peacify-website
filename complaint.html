@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Complaint</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png.jpeg">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2 class="logo">PEACIFY</h2>
+
+    <h1>Submit Your Complaint</h1>
+
+    <form id="complaintForm">
+
+        <textarea 
+            placeholder="Describe your issue..." 
+            required></textarea>
+
+        <input type="file" id="evidenceFile" required>
+
+        <button type="submit">Submit Complaint</button>
+
+    </form>
+
+    <p id="errorMsg" style="color:red;"></p>
+
+</div>
+
+<script>
+document.getElementById("complaintForm").addEventListener("submit", function(event) {
+
+    let fileInput = document.getElementById("evidenceFile");
+
+    if (fileInput.files.length === 0) {
+        event.preventDefault();
+        document.getElementById("errorMsg").innerText =
+        "⚠️ Evidence upload is mandatory!";
+    }
+
+});
+</script>
+
+</body>
+</html>
